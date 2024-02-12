@@ -1,0 +1,11 @@
+XindusTrade\Assignment\Controllers\ItemController.class
+XindusTrade\Assignment\Entities\User.class
+XindusTrade\Assignment\Controllers\UserController.class
+XindusTrade\Assignment\Entities\Item.class
+XindusTrade\Assignment\AssignmentApplication.class
+XindusTrade\Assignment\Entities\User$UserBuilder.class
+XindusTrade\Assignment\Repositories\ItemRepository.class
+XindusTrade\Assignment\Entities\Item$ItemBuilder.class
+XindusTrade\Assignment\Repositories\UserRepository.class
+XindusTrade\Assignment\Services\ItemService.class
+XindusTrade\Assignment\Services\UserService.class
