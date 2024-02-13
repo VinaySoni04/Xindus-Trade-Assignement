@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("/api")
 public class ItemController {
     @Autowired
     private ItemService itemService;
-    @PostMapping("add")
+    @PostMapping("addItem")
     private ResponseEntity<ItemResponseDTO> addItem(ItemRequestDTO itemDTO){
         try {
             ItemResponseDTO response=itemService.add(itemDTO);
