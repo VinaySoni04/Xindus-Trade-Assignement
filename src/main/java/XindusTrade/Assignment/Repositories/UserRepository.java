@@ -8,5 +8,8 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
-    Optional<User> findByUsername(String username);
+    // JpaRepository is an interface provided by Spring Data JPA.
+    // Spring Data JPA simplifies the implementation of data access layers by providing a set of abstractions
+    // and utility methods to interact with databases using the Java Persistence API (JPA).
+    Optional<User> findByUsername(String username); // Interface automatically will provide implementation
 }
