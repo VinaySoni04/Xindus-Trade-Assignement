@@ -54,4 +54,4 @@ The following API endpoints are available:
 Unit tests have been implemented using JUnit to validate the functionality of wishlist-related components, including controllers, services, and repositories. These tests ensure the reliability of the application and help maintain code quality.
 
 # 8. Conclusion
-The Wishlist Management System provides a robust platform for users to manage their wishlists effectively. With its user-friendly interface and comprehensive feature set, it offers a seamless experience for users to track their desired items.
+The Wishlist Management System provides a robust platform for users to manage their wishlists effectively. It offers a seamless experience for users to track their desired items.
