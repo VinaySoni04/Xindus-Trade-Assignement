@@ -40,7 +40,7 @@ The system follows a layered architecture pattern:
 # 5. Setup Instructions
 To set up the Wishlist Management System locally:-
 - Clone the repository from GitHub.
-- Configure the mysql database connection properties in the application.properties file.
+- Configure the MySQL database connection properties in the application.properties file. And create a database using MySQL Command Line.
 - Build and run the application using Maven or Gradle.
 - Access the API endpoints using a tool like Postman.
 
