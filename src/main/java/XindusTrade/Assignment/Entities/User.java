@@ -1,24 +1,26 @@
 package XindusTrade.Assignment.Entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
+//@Data
 @Builder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String username;
     private String password;
 
@@ -31,9 +33,32 @@ public class User {
     // name = "user_item" specifies the name of the join table in the database.
     // joinColumns = @JoinColumn(name = "user_id") indicates the foreign key column in the join table that references the primary key of the owning side.
     // inverseJoinColumns = @JoinColumn(name = "item_id") indicates the foreign key column in the join table that references the primary key of the inverse side.
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_item",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id"))
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private List<Item> wishlist=new ArrayList<>();
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

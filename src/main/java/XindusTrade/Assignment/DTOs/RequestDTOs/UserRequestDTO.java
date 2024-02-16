@@ -1,8 +1,11 @@
 package XindusTrade.Assignment.DTOs.RequestDTOs;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class UserRequestDTO {
     // We are using DTOs(Data Transfer Objects) to pass the details of User
     // DTOs are objects used to encapsulate data and transfer it between different layers of an application.

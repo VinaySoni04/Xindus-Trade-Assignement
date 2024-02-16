@@ -9,7 +9,8 @@ import XindusTrade.Assignment.Entities.User;
 
 public class ItemTransformer {
     public static Item convertDtoToEntity(ItemRequestDTO itemDTO){
-        Item itemObj=Item.builder().name(itemDTO.getName())
+        Item itemObj=Item.builder()
+                .name(itemDTO.getName())
                 .description(itemDTO.getDescription())
                 .numberOfUnits(itemDTO.getNumberOfUnits())
                 .price(itemDTO.getPrice())

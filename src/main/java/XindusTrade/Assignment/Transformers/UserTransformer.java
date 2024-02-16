@@ -12,7 +12,8 @@ public class UserTransformer {
 
     // Function names defines their functionality
     public static User convertDtoToEntity(UserRequestDTO userDTO){
-        User userObj=User.builder().username(userDTO.getUsername())
+        User userObj= User.builder()
+                .username(userDTO.getUsername())
                 .password(userDTO.getPassword())
                 .build();
         return userObj;
