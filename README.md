@@ -6,7 +6,7 @@
 3. Architecture
 4. Technologies Used
 5. Setup Instructions
-6. API Documentation
+6. API Documentation and API testing
 7. Testing
 8. Conclusion
 
@@ -44,11 +44,13 @@ To set up the Wishlist Management System locally:-
 - Build and run the application using Maven or Gradle.
 - Access the API endpoints using a tool like Postman.
 
-# 6. API Documentation
+# 6. API Documentation and API testing
 The following API endpoints are available:
 - GET /api/wishlists: Retrieve a user's wishlist.
 - POST /api/wishlists: Create a new wishlist item.
 - DELETE /api/wishlists/{id}: Remove a wishlist item by ID.
+
+You can test APIs using Postman.
 
 # 7. Testing
 Unit tests have been implemented using JUnit to validate the functionality of wishlist-related components, including controllers, services, and repositories. These tests ensure the reliability of the application and help maintain code quality.
