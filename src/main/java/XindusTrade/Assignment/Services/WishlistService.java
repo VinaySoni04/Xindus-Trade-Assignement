@@ -27,6 +27,9 @@ public class WishlistService {
 
     public ItemResponseDTO addItemToWishlist(String username, ItemRequestDTO itemDTO){
         Item item=ItemTransformer.convertDtoToEntity(itemDTO);
+        if (item.getNumberOfUnits()>0){
+            item.setAvailable(true);
+        }
         User user=userRepository.findByUsername(username);
         user.getWishlist().add(item);
         userRepository.save(user);
@@ -34,12 +37,12 @@ public class WishlistService {
         return responseDTO;
     }
 
-    public String removeItemFromWishlist(String username, Long itemId) throws NotFoundException {
+    public String removeItemFromWishlist(String username, int itemId) throws NotFoundException {
         User user=userRepository.findByUsername(username);
         List<Item> updatedWishlist=user.getWishlist();
         for (Item i:updatedWishlist){
-            if (i.getId()!=itemId)
-                updatedWishlist.add(i);
+            if (i.getId()==itemId)
+                updatedWishlist.remove(i);
         }
         user.setWishlist(updatedWishlist);
         userRepository.save(user);

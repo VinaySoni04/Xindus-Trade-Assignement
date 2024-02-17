@@ -1,10 +1,7 @@
 package XindusTrade.Assignment.Controllers;
 
-import XindusTrade.Assignment.DTOs.RequestDTOs.UserRequestDTO;
-import XindusTrade.Assignment.DTOs.ResponseDTOs.ItemResponseDTO;
 import XindusTrade.Assignment.DTOs.ResponseDTOs.UserResponseDTO;
 import XindusTrade.Assignment.Entities.User;
-import XindusTrade.Assignment.Exceptions.NotFoundException;
 import XindusTrade.Assignment.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package XindusTrade.Assignment;
+package XindusTrade.Assignment.ServiceTests;
 
 
 import XindusTrade.Assignment.DTOs.RequestDTOs.ItemRequestDTO;
@@ -62,7 +62,7 @@ public class WishlistServiceTest {
     @Test
     void testRemoveItemFromWishlist() throws NotFoundException {
         String username = "testUser";
-        Long itemId = 1L;
+        int itemId = 1;
         User user = new User();
         Item item1 = new Item();
         item1.setId(1);

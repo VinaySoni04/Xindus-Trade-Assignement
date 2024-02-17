@@ -26,7 +26,7 @@ public class WishlistController {
         }
     }
 
-    @PostMapping("/wishlist")
+    @PostMapping("/wishlists")
     public ResponseEntity<ItemResponseDTO> addItem(@RequestBody ItemRequestDTO itemDTO){
         String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
         ItemResponseDTO response=wishlistService.addItemToWishlist(currentUsername,itemDTO);
@@ -35,8 +35,8 @@ public class WishlistController {
         return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping("/wishlists/{userId}")
-    public ResponseEntity<String> removeItemFromWishlist(@PathVariable Long itemId) throws NotFoundException {
+    @DeleteMapping("/wishlists/{itemId}")
+    public ResponseEntity<String> removeItemFromWishlist(@PathVariable int itemId) throws NotFoundException {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return new ResponseEntity<>(wishlistService.removeItemFromWishlist(username,itemId),HttpStatus.ACCEPTED);
     }

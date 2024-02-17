@@ -1,4 +1,4 @@
-package XindusTrade.Assignment;
+package XindusTrade.Assignment.ControllerTests;
 
 import XindusTrade.Assignment.Controllers.WishlistController;
 import XindusTrade.Assignment.DTOs.RequestDTOs.ItemRequestDTO;
@@ -55,7 +55,7 @@ public class WishlistControllerTest {
 
     @Test
     void testRemoveItemFromWishlist() throws NotFoundException {
-        Long itemId = 1L;
+        int itemId = 1;
         String username = "testUser";
         String expectedResult = "Item removed successfully";
         when(wishlistService.removeItemFromWishlist(username, itemId)).thenReturn(expectedResult);
