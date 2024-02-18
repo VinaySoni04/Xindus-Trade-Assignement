@@ -38,6 +38,7 @@ public class WishlistService {
         }
         User user=userRepository.findByUsername(username);
         user.getWishlist().add(item); // It adds the item to the user's wishlist retrieved from the user entity.
+        item.getUsers().add(user); // It marks item by user
         userRepository.save(user); // Save the user entity with the updated wishlist
         ItemResponseDTO responseDTO=ItemTransformer.convertEntityToDto(item); // Convert the added item back to a DTO for response
         return responseDTO;

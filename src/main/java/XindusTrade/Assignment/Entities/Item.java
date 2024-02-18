@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "items")
 @Data
@@ -22,4 +25,7 @@ public class Item {
     private int numberOfUnits;
     private boolean isAvailable; // This attributes indicates that whether the item is in stock or out of stock.
                                  // Note:- This attribute has no use. We can think a scenario with this
+     @ManyToMany(mappedBy = "wishlist")
+     private Set<User> users = new HashSet<>();
+
 }

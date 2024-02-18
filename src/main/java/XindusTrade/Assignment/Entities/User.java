@@ -27,11 +27,17 @@ public class User implements UserDetails {
     private String password;
 
     // Bi-Directional Mapping between user and item
-    // Here we are implementing OneToMany mapping because a user can have multiple items in their wishlist
-    // @OneToMany annotation indicates that there is a One-to-Many relationship between user and item entity.
+    // Here we are implementing ManyToMany mapping because a user can have multiple items in their wishlist
+    // And multiple users can have one or more same item
+    // @ManyToMany annotation indicates that there is a Many-to-Many relationship between user and item entity.
     // cascade = CascadeType.ALL, it is called as cascading effect, allows operations performed on one entity to propagate to associated entities.
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Item> wishlist=new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "user_wishlist", // name attribute specifies the name of the join table
+            joinColumns = @JoinColumn(name = "user_id"), // It specifies the column that represent the user entity
+            inverseJoinColumns = @JoinColumn(name = "item_id") // It specifies the column that represent the item entity
+    )
+    private List<Item> wishlist = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
