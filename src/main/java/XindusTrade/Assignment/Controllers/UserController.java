@@ -16,12 +16,14 @@ public class UserController {
     @PostMapping("/add")
     private ResponseEntity<UserResponseDTO> addUser(@RequestBody User user){
         try {
-            UserResponseDTO response=userService.add(user);
+            UserResponseDTO response=userService.add(user); // Calling add() function which is defined in service layer
+            // Setting the status message and code
             response.setStatusCode("202");
             response.setStatusMessage("SUCCESS!! User added successfully!!");
             return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
         } catch (Exception e){
             UserResponseDTO response=new UserResponseDTO();
+            // Setting the status message and code
             response.setStatusCode("400");
             response.setStatusMessage(e.getMessage());
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
