@@ -24,7 +24,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(@RequestBody UserRequestDTO requestDTO) {
-        doAuthenticate(requestDTO.getUsername(),requestDTO.getPassword());
+        doAuthenticate(requestDTO.getUsername(),requestDTO.getPassword()); // Calling doAuthenticate() function which authenticates the user.
         UserDetails userDetails = customUserDetailService.loadUserByUsername(requestDTO.getUsername());
         AuthResponseDTO responseDTO = AuthResponseDTO.builder()
                 .username(userDetails.getUsername())

@@ -32,6 +32,7 @@ class UserControllerTest {
     private final MockMvc mockMvc;
     private final ObjectMapper objectMapper;
     public UserControllerTest() {
+        this.userController = new UserController();
         this.mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
         this.objectMapper = new ObjectMapper();
     }

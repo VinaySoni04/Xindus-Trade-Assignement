@@ -9,11 +9,15 @@ import XindusTrade.Assignment.Entities.User;
 
 public class ItemTransformer {
     public static Item convertDtoToEntity(ItemRequestDTO itemDTO){
+        if (itemDTO==null || itemDTO.getPrice()==null) {
+            // Handle the case where itemDTO or its price is null
+            throw new IllegalArgumentException("ItemRequestDTO or its price cannot be null");
+        }
         Item itemObj=Item.builder()
                 .name(itemDTO.getName())
                 .description(itemDTO.getDescription())
                 .numberOfUnits(itemDTO.getNumberOfUnits())
-                .price(itemDTO.getPrice())
+                .price(itemDTO.getPrice().doubleValue())
                 .build();
         return itemObj;
     }

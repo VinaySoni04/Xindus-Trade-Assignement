@@ -14,6 +14,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +51,7 @@ public class WishlistServiceTest {
     void testAddItemToWishlist() {
         String username = "testUser";
         ItemRequestDTO itemDTO = new ItemRequestDTO();
+        itemDTO.setPrice(10.0); // Set a non-null price
         Item item = new Item();
         ItemResponseDTO responseDTO = new ItemResponseDTO();
         User user = new User();
@@ -58,6 +60,7 @@ public class WishlistServiceTest {
         ItemResponseDTO result = wishlistService.addItemToWishlist(username, itemDTO);
         assertNotNull(result);
     }
+
 
     @Test
     void testRemoveItemFromWishlist() throws NotFoundException {

@@ -27,7 +27,7 @@ public class UserRepositoryTest {
         user.setPassword("password123");
         when(userRepository.findByUsername(username)).thenReturn(user);
         User result = userRepository.findByUsername(username);
-        assertEquals(user.getId(), result.getId());
+        assertEquals(user.getId(), result.getId()); // We are simply checking the required output and  expected output
         assertEquals(user.getUsername(), result.getUsername());
         assertEquals(user.getPassword(), result.getPassword());
     }

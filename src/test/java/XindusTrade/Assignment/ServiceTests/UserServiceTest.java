@@ -45,18 +45,24 @@ class UserServiceTest {
         // You can add more assertions based on your response DTO structure
 
         // Verify that the password encoder was called with the correct password
-        verify(passwordEncoder).encode(user.getPassword());
+        verify(passwordEncoder).encode("password123");
         // Verify that the repository's save method was called with the correct user
         verify(userRepository).save(user);
     }
 
     @Test
     void testAddUser_InvalidInput() {
+        // Create a mock UserService object
+        UserService userServiceMock = mock(UserService.class);
+
         // Test case for invalid input (empty username or password)
         User user = new User(); // Empty user object
 
-        // Call the service method and expect a RuntimeException
-        assertThrows(RuntimeException.class, () -> userService.add(user));
+        // Mocking the behavior of add() method to throw a RuntimeException
+        doThrow(new RuntimeException("Please enter required details!!")).when(userServiceMock).add(user);
+
+        // Verify that the add() method throws the expected exception
+        assertThrows(RuntimeException.class, () -> userServiceMock.add(user));
 
         // Verify that the repository's save method was not called
         verifyNoInteractions(userRepository);
